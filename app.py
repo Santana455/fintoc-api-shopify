@@ -29,7 +29,7 @@ def nuevo_pedido():
             "amount": amount,
             "currency": currency,
             "payment_description": "Pago desde Shopify",
-            "recipient_email": "cliente@ejemplo.cl"
+            "recipient_email": "juanneira43@gmail.com"
         }
     )
 
