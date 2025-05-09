@@ -21,7 +21,8 @@ def nuevo_pedido():
     fintoc_response = requests.post(
         "https://api.fintoc.com/v1/payment_intents",
         headers={
-            "Authorization": f"Bearer {FINTOC_SECRET_KEY}",
+            # 🔥 Ya no usamos "Bearer "
+            "Authorization": FINTOC_SECRET_KEY,
             "Content-Type": "application/json"
         },
         json={
@@ -43,6 +44,5 @@ def nuevo_pedido():
             "detalle": fintoc_response.text
         }), 500
 
-# Esto permite que se ejecute localmente (en localhost:5000)
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
