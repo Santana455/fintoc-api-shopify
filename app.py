@@ -4,7 +4,7 @@ import os
 
 app = Flask(__name__)
 
-# Clave secreta de Fintoc (LIVE)
+# Clave secreta tomada del entorno (Render o local)
 FINTOC_SECRET_KEY = os.getenv("FINTOC_SECRET_KEY")
 
 @app.route("/", methods=["GET"])
@@ -14,7 +14,7 @@ def home():
 @app.route("/nuevo-pedido", methods=["POST"])
 def nuevo_pedido():
     data = request.json
-    amount = int(data.get("amount", 1000))  # en pesos chilenos
+    amount = int(data.get("amount", 1000))  # valor en pesos chilenos
     currency = "CLP"
 
     # Crear un PaymentIntent en Fintoc
@@ -42,3 +42,7 @@ def nuevo_pedido():
             "error": "Error al crear el link de pago",
             "detalle": fintoc_response.text
         }), 500
+
+# Esto permite que se ejecute localmente (en localhost:5000)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
