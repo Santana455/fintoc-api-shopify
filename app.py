@@ -36,7 +36,7 @@ def nuevo_pedido():
     if fintoc_response.status_code == 201:
         payment_data = fintoc_response.json()
         return jsonify({
-            "link_de_pago": payment_data.get("checkout_url")
+            "link_de_pago": payment_data.get("payment_url")
         }), 200
     else:
         return jsonify({
