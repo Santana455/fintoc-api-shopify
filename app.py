@@ -29,7 +29,7 @@ def nuevo_pedido():
             "amount": amount,
             "currency": currency,
             "payment_description": "Pago desde Shopify",
-            "recipient_email": "juanneira43@gmail.com"  # ✅ tu correo real
+            "recipient_email": "ventas@alimentosdelperu.cl"  # ✅ tu correo real
         }
     )
 
